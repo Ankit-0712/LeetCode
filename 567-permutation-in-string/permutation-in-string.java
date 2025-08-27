@@ -3,18 +3,24 @@ class Solution {
         int n = s1.length();
         int m = s2.length();
         if(n>m) return false;
+        int[] s1Count = new int[26];
+        int[] s2Count = new int[26];
 
-        char[] ch = s1.toCharArray();
-        Arrays.sort(ch);
-        String sorteds1 = new String(ch);
+        for(char ch : s1.toCharArray()){
+            s1Count[ch-'a']++;
+        }
 
-        for(int i=0;i<=m-n;i++){
-            String sub = s2.substring(i,i+n);
-            char[] subArr = sub.toCharArray();
-            Arrays.sort(subArr);
-            String sortedSub = new String(subArr);
-
-            if(sorteds1.equals(sortedSub)) return true;
+        int i=0,j=0;
+        while(j<m){
+            s2Count[s2.charAt(j)-'a']++;
+            if(j-i+1>n){//shrink window
+                s2Count[s2.charAt(i)-'a']--;
+                i++;
+            }
+            if(Arrays.equals(s1Count, s2Count)){
+                return true;
+            }
+            j++;
         }
         return false;
     }

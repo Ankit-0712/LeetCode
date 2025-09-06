@@ -23,8 +23,8 @@ class Solution {
         return start;
     }
 
-    private int sumD(int[] nums, int div){
-        int sum = 0;
+    private long sumD(int[] nums, int div){
+        long sum = 0;
         for(int i=0;i<nums.length;i++){
             sum += Math.ceil((double)nums[i]/(double)div);
         }

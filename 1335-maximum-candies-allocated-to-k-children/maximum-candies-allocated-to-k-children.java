@@ -9,7 +9,7 @@ class Solution {
             }
         }
 
-        int start = 0, end = maxi;
+        int start = 1, end = maxi;
         while(start<=end){
             int mid = start+(end-start)/2;
             if(helper(candies,mid)>=k){
@@ -24,7 +24,7 @@ class Solution {
     private long helper(int[] nums, int div){
         long sum = 0;
         for(int i=0;i<nums.length;i++){
-            sum += Math.floor((double)nums[i]/(double)div);
+            sum += nums[i]/div;
         }
 
         return sum;

@@ -1,6 +1,7 @@
 class Solution {
     public int minEatingSpeed(int[] piles, int h) {
         int n = piles.length;
+        if(n>h) return -1;
         
         int maxi = Integer.MIN_VALUE;
         for(int i=0;i<n;i++){

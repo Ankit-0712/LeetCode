@@ -1,18 +1,20 @@
 class Solution {
+    List<List<Integer>> ans = new ArrayList<>();
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> resultSet = new ArrayList<>();
-        backTrack(resultSet, new ArrayList<>(), nums, 0);
-        return resultSet;
-
+        helper(0, new ArrayList<>(), nums);
+        return ans;
     }
 
-    public void backTrack(List<List<Integer>> resultSet,List<Integer> tempSet, int[] nums, int start){
-        resultSet.add(new ArrayList<>(tempSet));
-        for(int i= start; i<nums.length;i++){
-            tempSet.add(nums[i]);
-            backTrack(resultSet, tempSet, nums, i+1);
-            tempSet.remove(tempSet.size()-1);
-
+    public void helper(int index, List<Integer>list, int[] nums){
+        if(index== nums.length){
+            ans.add(new ArrayList<>(list));
+            return;
         }
+
+        list.add(nums[index]);
+        helper(index+1, list, nums);
+
+        list.remove(list.size() - 1);
+        helper(index+1, list, nums);
     }
 }

@@ -4,14 +4,19 @@ class Solution {
         Arrays.sort(trainers);
         int pIndex = 0;
         int tIndex = 0;
+        int match = 0;
         while(pIndex < players.length && tIndex < trainers.length){
             if(trainers[tIndex]>= players[pIndex]){
+                match++;
                 pIndex++;
+                tIndex++;
+            }else{
+                tIndex++;
             }
 
-            tIndex++;
+           
     }
 
-    return pIndex;
+    return match;
 }
 }

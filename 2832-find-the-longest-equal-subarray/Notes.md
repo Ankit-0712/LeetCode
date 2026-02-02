@@ -1,0 +1,1 @@
+<h2>find-the-longest-equal-subarray Notes</h2><hr>[ Time taken: 2 hrs 4 m 27 s ]

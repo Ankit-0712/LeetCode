@@ -4,7 +4,7 @@ class Solution {
         int i = 0;
         int maxWindow = 0;
         for(int j=0;j<nums.length;j++){
-            while(i<nums.length && (long)nums[j]> (long)nums[i]*k){
+            while( (long)nums[j]> (long)nums[i]*k){
                 i++;
             }
             maxWindow = Math.max(maxWindow, j-i+1);
